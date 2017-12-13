@@ -6,12 +6,10 @@
  * @package Atwix_FixDefaultShippingTracking
  */
 -->
-<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="empty" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
     <body>
-        <referenceBlock name="shipping.tracking.popup">
-            <arguments>
-                <argument name="template" xsi:type="string">Atwix_FixDefaultShippingTracking::/shipping/tracking/popup.phtml</argument>
-            </arguments>
-        </referenceBlock>
+        <referenceContainer name="content">
+            <block class="Magento\Shipping\Block\Tracking\Popup" name="shipping.tracking.popup" template="Atwix_FixDefaultShippingTracking::shipping/tracking/popup.phtml" cacheable="false"/>
+        </referenceContainer>
     </body>
 </page>

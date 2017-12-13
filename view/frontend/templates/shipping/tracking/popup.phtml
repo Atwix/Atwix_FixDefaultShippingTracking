@@ -1,14 +1,15 @@
 <?php
 /**
- * Copyright © 2013-2017 Magento, Inc. All rights reserved.
- * See COPYING.txt for license details.
+ * @author Atwix Team
+ * @copyright Copyright (c) 2017 Atwix (https://www.atwix.com/)
+ * @package Atwix_FixDefaultShippingTracking
  */
 
-use Magento\Framework\View\Element\Template;
+use Magento\Shipping\Block\Tracking\Popup as TrackingPopupBlock;
 
 // @codingStandardsIgnoreFile
 
-/** @var $block \Magento\Shipping\Block\Tracking\Popup */
+/** @var TrackingPopupBlock $block */
 
 $results = $block->getTrackingInfo();
 ?>
@@ -22,7 +23,7 @@ $results = $block->getTrackingInfo();
                 <?php foreach ($result as $counter => $track): ?>
                     <div class="table-wrapper">
                         <?php
-                            $block->addChild('shipping.tracking.details.' . $counter, Template::class, [
+                            $block->addChild('shipping.tracking.details.' . $counter, TrackingPopupBlock::class, [
                                 'track' => $track,
                                 'template' => 'Magento_Shipping::tracking/details.phtml',
                                 'storeSupportEmail' => $block->getStoreSupportEmail()
@@ -33,7 +34,7 @@ $results = $block->getTrackingInfo();
                     </div>
                     <?php if (!empty($track->getProgressdetail())): ?>
                         <?php
-                            $block->addChild('shipping.tracking.progress.'. $counter, Template::class, [
+                            $block->addChild('shipping.tracking.progress.'. $counter, TrackingPopupBlock::class, [
                                 'track' => $track,
                                 'template' => 'Magento_Shipping::tracking/progress.phtml'
                             ]);
